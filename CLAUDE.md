@@ -14,10 +14,10 @@ This branch contains experimental extensions to the base NEPA implementation.
 
 **Planned changes:**
 - Custom Fast-RoPE implementation (replacing standard RoPE)
-- Decoder/diffusion-based generator integration
 
 **Available:**
 - Tiny model config + CIFAR-10 dataset for faster iteration
+- Diffusion decoder for image reconstruction from NEPA embeddings
 
 ## CIFAR-10 Training (Lightweight)
 
@@ -36,6 +36,36 @@ bash scripts/eval/nepa_tiny_cifar10_sft_eval.sh # Evaluate
 
 ### Google Colab
 Use `notebooks/nepa_cifar10_colab.ipynb` for training on Colab with GPU.
+
+## Diffusion Decoder
+
+UNet diffusion decoder that reconstructs images from NEPA embeddings. Uses cross-attention conditioning with frozen NEPA encoder.
+
+### Architecture
+- **Encoder**: Frozen NEPA (384-D, 6 layers, 16x16 patches)
+- **Decoder**: UNet with cross-attention to NEPA embeddings (~40M params)
+- **Training**: DDPM with cosine schedule, MSE loss on predicted noise
+- **Inference**: DDIM for fast sampling (50 steps)
+
+### Config
+- `configs/diffusion/nepa-tiny-diffusion-cifar10/`
+
+### Scripts
+```bash
+# Train diffusion decoder (requires pretrained NEPA encoder)
+bash scripts/diffusion/train_diffusion_tiny_cifar10.sh
+```
+
+### Google Colab
+Use `notebooks/nepa_diffusion_colab.ipynb` for training on Colab.
+
+### Model Code
+Located in `models/diffusion_decoder/`:
+- `configuration_diffusion_decoder.py` - Config class
+- `modeling_diffusion_decoder.py` - UNet wrapper with NEPA conditioning
+
+### Training Script
+- `run_diffusion_reconstruction.py` - Main entry point
 
 ## Common Commands
 

@@ -1,0 +1,20 @@
+{
+  "model_type": "diffusion_decoder",
+  "nepa_model_path": "outputs/nepa-tiny-patch14-224-cifar10",
+  "nepa_hidden_size": 384,
+  "nepa_num_patches": 256,
+  "image_size": 224,
+  "in_channels": 3,
+  "out_channels": 3,
+  "block_out_channels": [64, 128, 256, 512],
+  "layers_per_block": 2,
+  "attention_head_dim": 8,
+  "cross_attention_dim": 384,
+  "num_train_timesteps": 1000,
+  "num_inference_timesteps": 50,
+  "beta_schedule": "scaled_linear",
+  "prediction_type": "epsilon",
+  "use_ema": true,
+  "ema_decay": 0.9999,
+  "freeze_nepa": true
+}
