@@ -18,6 +18,7 @@ torchrun \
     \
     --model_name_or_path $MODEL_NAME \
     --dataset_name "cifar10" \
+    --image_column_name "img" \
     --load_from_disk False \
     --do_eval True \
     --per_device_eval_batch_size 128 \

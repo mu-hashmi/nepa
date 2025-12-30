@@ -38,6 +38,7 @@ torchrun \
     --config_name $CONFIG_NAME \
     --image_processor_name $CONFIG_NAME \
     --dataset_name "cifar10" \
+    --image_column_name "img" \
     --load_from_disk False \
     --dataloader_drop_last True \
     \

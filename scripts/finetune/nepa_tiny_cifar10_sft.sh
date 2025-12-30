@@ -43,6 +43,7 @@ torchrun \
     --freeze_embed True \
     \
     --dataset_name "cifar10" \
+    --image_column_name "img" \
     --load_from_disk False \
     --dataloader_drop_last True \
     \

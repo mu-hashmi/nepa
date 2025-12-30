@@ -41,6 +41,7 @@ torchrun \
     --ema_decay 0.9999 \
     \
     --dataset_name "cifar10" \
+    --image_column_name "img" \
     --load_from_disk False \
     --image_size 224 \
     --resize_size 256 \
