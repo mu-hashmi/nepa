@@ -15,7 +15,27 @@ This branch contains experimental extensions to the base NEPA implementation.
 **Planned changes:**
 - Custom Fast-RoPE implementation (replacing standard RoPE)
 - Decoder/diffusion-based generator integration
-- CIFAR-10 dataset for faster iteration (instead of ImageNet-1k)
+
+**Available:**
+- Tiny model config + CIFAR-10 dataset for faster iteration
+
+## CIFAR-10 Training (Lightweight)
+
+Tiny model (~15M params) optimized for single GPU training on CIFAR-10.
+
+### Configs
+- Pretrain: `configs/pretrain/nepa-tiny-patch14-224-cifar10/`
+- Finetune: `configs/finetune/nepa-tiny-patch14-224-cifar10-sft/`
+
+### Scripts
+```bash
+bash scripts/pretrain/nepa_tiny_cifar10.sh      # Pretrain (100 epochs)
+bash scripts/finetune/nepa_tiny_cifar10_sft.sh  # Fine-tune (50 epochs)
+bash scripts/eval/nepa_tiny_cifar10_sft_eval.sh # Evaluate
+```
+
+### Google Colab
+Use `notebooks/nepa_cifar10_colab.ipynb` for training on Colab with GPU.
 
 ## Common Commands
 

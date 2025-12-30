@@ -14,8 +14,10 @@ data/
 viz_output/
 
 *.ipynb
+!notebooks/*.ipynb
 *.safetensors
 *.ckpt
 *.sh
+!scripts/**/*.sh
 
 **/.ipynb_checkpoints/
