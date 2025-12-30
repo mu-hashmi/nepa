@@ -8,6 +8,15 @@ NEPA (Next-Embedding Prediction Makes Strong Vision Learners) is a PyTorch imple
 
 Paper: https://arxiv.org/abs/2512.16922
 
+## Branch: extended
+
+This branch contains experimental extensions to the base NEPA implementation.
+
+**Planned changes:**
+- Custom Fast-RoPE implementation (replacing standard RoPE)
+- Decoder/diffusion-based generator integration
+- CIFAR-10 dataset for faster iteration (instead of ImageNet-1k)
+
 ## Common Commands
 
 ### Environment Setup
